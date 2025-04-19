@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Steve",
+        "last Name": "Rogers",
+        "isAvenger":true,
+        "friends":[
+            "Bruce",
+            "Neter",
+            "Natasha"
+        ],
+        "age":45,
+        "address":{
+            "city":"New York",
+            "state":"Manhanttan"
+        }
+    },
+    {
+        "name":"Robert",
+        "last Name": "jr",
+        "isAvenger":true,
+        "friends":[
+            "Bruce",
+            "Neter",
+            "Natasha"
+        ],
+        "age":45,
+        "address":{
+            "city":"New York",
+            "state":"Manhanttan"
+        }
+    }
+]
