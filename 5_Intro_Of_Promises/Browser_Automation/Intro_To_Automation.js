@@ -39,6 +39,7 @@ browseropenpromise
     return elementWaitPromise;
   })
   .then(function () {
+    //mouse click
     cpage.click("h3.LC20lb.MBeuO.DKV0Md");
   })
   .catch(function (err) {
