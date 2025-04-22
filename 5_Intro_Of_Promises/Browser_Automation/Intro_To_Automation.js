@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(StealthPlugin());
 
-let cpage;
+let cpage; 
 console.log("Before");
 
 const browseropenpromise = puppeteer.launch({ headless: false });
