@@ -11,7 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0",
+    "clipboardy": "^2.3.0",
+    "pdfkit": "^0.17.0",
     "puppeteer": "^24.6.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "request": "^2.88.2",
     "xlsx": "^0.18.5"
   }
