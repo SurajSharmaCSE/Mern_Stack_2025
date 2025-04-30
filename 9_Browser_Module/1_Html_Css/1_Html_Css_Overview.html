@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My WebSite</title>
+
+    <style>
+        /* Simple Selectore */
+
+        /* h1 {
+            color: lightblue;
+        }
+        p {
+            background-color: lightpink;
+        }
+        #unique {
+            text-decoration: underline;
+        }
+
+        .common {
+            background-color: lightgreen;
+        } */
+        
+        /* Combinator Selector  */
+        .common p{
+           color: lightcoral;
+        }
+        .common > p
+        {
+            background-color: yellow;
+        }
+
+        .common + div{
+            color: red;
+        }
+
+        .common ~ div
+        {
+            background-color: lightgreen;
+        }
+
+        /* Attribute */
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Heading -->
+    <h1>Hello Everyone</h1>
+    <h2>Hello Everyone</h2>
+    <h3>Hello Everyone</h3>
+
+    <!-- paragraph -->
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt vero quia unde, eveniet, culpa omnis ut totam
+        adipisci amet, officiis voluptates repellendus facilis nemo? Ut expedita minima soluta praesentium odio?
+    </p>
+
+    <!-- anchor -->
+    <a href="https://www.google.com">Go to google</a>
+
+    <!-- Division -->
+    <div class="common common2">
+        <div class="something1">Something</div>
+        <div class="something2">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quaerat, voluptatem cupiditate,
+                perspiciatis temporibus enim explicabo ex sequi doloribus blanditiis molestias recusandae, esse
+                molestiae sed velit eaque. Suscipit, quisquam totam?
+            </p>
+        </div>
+        <div class="something3"></div>
+        <p>Hello!!!</p>
+    </div>
+    <div class="sib">I'm Sibling</div>
+
+    <!-- unordered list -->
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+    </ul>
+
+    <!-- ordered list -->
+     <ol>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+     </ol>
+     
+     <!-- span  -->
+     <span>Content Filling</span>
+     
+     <!-- image  -->
+     <img width = "60" src="give link here" alt="Some image">
+
+     <!-- form  -->
+     <form>
+        <label for="name">Name</label>
+        <input type="text" id="name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email">
+
+        <label for="pass">password</label>
+        <input type="password" id="pass">
+
+        <label for="num">Number Type</label>
+        <input type="number" id="num">
+     </form>
+</body>
+
+</html>
