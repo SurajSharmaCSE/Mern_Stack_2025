@@ -1,0 +1,90 @@
+
+<!-- 
+  Siblings
+  1. previousElementSibling
+  2. nextElementSibling
+  3. previousSibling
+  4. nextSibling
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .card {
+            height: 10rem;
+            width: 10rem;
+            border: 3px solid rgb(12, 12, 12);
+        }
+
+        .container {
+            height: 90vh;
+            width: 90vw;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+        }
+        .red
+        {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card red"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+  </div>
+
+  <script>
+        // Q: Create a generic function to select all sibling of a given node. Using that function delete all siblings of red
+        // card
+
+        let redElem = document.querySelector(".red")
+        // deleteAllSibling(redElem);
+
+        // way1
+        /*
+        function deleteAllSibling(redElem)
+        {
+            let before = redElem.previousElementSibling;
+            let after = redElem.nextElementSibling;
+
+            while(before)
+            {
+               before.remove();
+               before = redElem.previousElementSibling;
+            } 
+
+            while(after)
+            {
+               after.remove();
+               after = redElem.nextElementSibling;
+            }   
+        }
+        */
+
+        // way2
+        let allCards = document.querySelectorAll(".card");
+        allCards.forEach( (card)=>{
+            if(card !== redElem)
+            {
+               card.remove(); 
+            }
+        })
+
+  </script>
+</body>
+</html>

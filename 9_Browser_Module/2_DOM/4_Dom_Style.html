@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            /* text-align: center;
+  justify-items: space-around; */
+            justify-content: space-around;
+        }
+
+        .heading {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        .price {
+            background-color: red;
+            text-align: center;
+        }
+
+        .movie {
+            background-color: red;
+            height: 10rem;
+            width: 14rem;
+            margin: 4rem;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        select {
+            display: absolute;
+            text-align: center;
+            width: 6rem;
+            height: 3rem;
+            margin-top: 3rem;
+            margin-left: calc(100vw / 2 - 6rem);
+            margin-right: calc(100vw / 2 - 6rem);
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 3rem;
+            color: white;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Book My Show</h1>
+    <select>
+        <option value="none">None</option>
+        <option value="action">action</option>
+        <option value="romance">romance</option>
+        <option value="comedy">comedy</option>
+    </select>
+    <div class="movies">
+        <h3 class="heading"> Example-1</h3>
+        <p class="price" data-category="action">Rs. 100</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-2</h3>
+        <p class="price" data-category="action">Rs. 200</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-3</h3>
+        <p class="price" data-category="action">Rs. 300</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-4</h3>
+        <p class="price" data-category="romance">Rs. 400</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-5</h3>
+        <p class="price" data-category="romance">Rs. 500</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-6</h3>
+        <p class="price" data-category="romance">Rs. 600</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-7</h3>
+        <p class="price" data-category="comedy">Rs. 700</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-8</h3>
+        <p class="price" data-category="comedy">Rs. 800</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-9</h3>
+        <p class="price" data-category="action">Rs. 900</p>
+    </div>
+    <div class="movies">
+        <h3 class="heading"> Example-10</h3>
+        <p class="price" data-category="action">Rs. 1000</p>
+    </div>
+
+    <script>
+        // Q: Make a Filter Work
+        let select = document.querySelector("select");
+        let allMovie = document.querySelectorAll(".movies");
+        select.addEventListener("change", (e)=>{
+            let selectValue = select.value;
+            if(selectValue == 'none')
+            {
+                allMovie.forEach( (movie)=>{
+                    //display all movies
+                    movie.style.display = "block";
+                })
+            }
+            else
+            {
+                //filter
+                for(let i=0;i<allMovie.length;i++)
+                {
+                    let pElem = allMovie[i].querySelector("p");
+                    let movieValue = pElem.getAttribute("data-category");
+
+                    if(selectValue == movieValue)
+                    {
+                        allMovie[i].style.display = "block"  // block use for display the content
+                    }
+                    else
+                    {
+                        allMovie[i].style.display = "none";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
