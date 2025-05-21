@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button>sayHello</button>
+    <script>
+        // Question - On clicking the Button append hello to the page
+        let btn = document.querySelector("button");
+        btn.addEventListener("click",function(e){
+            let divElem = document.createElement("div");
+            divElem.innerText = "Hello";
+            let body = document.querySelector("body");
+            body.appendChild(divElem);
+        })
+    </script>    
+</body>
+    
+</html>

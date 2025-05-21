@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3rem;
+            margin: auto;
+        }
+
+        .card {
+            border: 1px dashed;
+            height: 15rem;
+            width: 15rem;
+        }
+
+        .solid {
+            border: 2px solid !important;
+            padding: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+    <div class="card solid"></div>
+
+    <script>
+        /* Q: Write a Script to do the following:
+          - Mouse Leaving from the card(say A) and entring another card (sayB). Destroy the card A by making it border and in its place
+            make another card with solid border which is not card A (say card
+        */
+
+        let allCards = document.querySelectorAll(".card");
+        let prevCard;
+
+        allCards.forEach( (card)=>{
+           card.addEventListener("mouseleave", (e)=>{
+            prevCard = e.currentTarget;
+           })
+           
+           card.addEventListener("mouseenter", (eachCard)=>{
+              prevCard.classList.remove("solid");
+              allCards.forEach( (eachCard)=>{
+                if(prevCard!=eachCard)
+                  eachCard.classList.add("solid");
+              })
+           })
+        })
+    </script>
+</body>
+</html>

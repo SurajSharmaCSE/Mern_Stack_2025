@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        div{
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</body>
+    <div></div>
+
+    <script>
+         /*
+            Q: Without using media queries do the following things
+            1. for desktop sizes make the background of above div lightpink
+            2. for tablet sizes make the background of above div lightblue
+            3. for mobile sizes make the background of the div lightgree
+         */
+
+         let divElem = document.querySelector("div");
+         window.addEventListener("resize", (e)=>{
+            let width = window.innerWidth;
+            if(width <= 600)
+             {
+                divElem.style.backgroundColor = "lightgreen";
+             }
+             else if (width <= 1024)
+             {
+                divElem.style.backgroundColor = "lightblue";
+             }
+             else
+             {
+                divElem.style.backgroundColor = "lightpink";
+             }
+         })
+    </script>
+</html>

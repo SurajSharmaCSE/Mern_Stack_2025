@@ -1,0 +1,73 @@
+<!-- 
+ 1. getAttribute
+ 2. SetAttribute
+ 3. classList  
+     - add
+     - remove
+     - contains
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            height: 10rem;
+            width: 10rem;
+            border: 3px solid rgb(12, 12, 12);
+        }
+
+        body {
+            height: 90vh;
+            width: 90vw;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+        }
+
+        .blue {
+            background-color: blue;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card" data-color="blue"></div>
+    <div class="card" data-color="red"></div>
+    <div class="card" data-color="blue"></div>
+    <div class="card" data-color="red"></div>
+    <div class="card" data-color="blue"></div>
+    <div class="card" data-color="red"></div>
+    <div class="card" data-color="blue"></div>
+    <div class="card" data-color="red"></div>
+    <div class="card" data-color="blue"></div>
+    <div class="card" data-color="red"></div>
+
+    <script>
+        //  Q: Write  a Script which fetches the data-color attribute of the card on double clicking one them and attached the 
+        //  fetech class to that card. Also changes the data-color attribute to used
+        
+        let allCards = document.querySelectorAll(".card");
+        allCards.forEach((card)=>{
+            card.addEventListener("dblclick",(e) =>{
+                let datacolor = card.getAttribute("data-color");
+                card.classList.add(datacolor);
+                card.setAttribute("data-color","used");
+            })
+        })
+    </script>
+
+</body>
+
+</html>

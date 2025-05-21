@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="pass">
+    <p>Caps on!</p>
+
+    <script>
+        /*
+          Q- Write a Script which keeps checking the password being entered. it should check if capslock is on or off 
+          if it's on it should not allowed to type ans show "caps on" on screen, also it should only allow to type 
+          if the shift key is pressed down
+        */
+
+        let inputElem = document.querySelector("input");
+        let pElem = document.querySelector("p");
+        let shiftKey;
+
+        inputElem.addEventListener("keydown", (e)=>{
+            if(e.getModifierState("CapsLock"))    // getModifierState() is used to check if a modifier key (like Shift, Ctrl, Alt, or Meta) was active during a keyboard or mouse event.
+            {
+                pElem.style.display = "block";
+                e.preventDefault(); // preventDefault() use for restrict to type anything 
+            }
+            else
+            {
+                pElem.style.display = "none"
+            }
+
+            if(!shiftKey) 
+              e.preventDefault();
+        })
+
+        //shift login 
+        document.documentElement.addEventListener("keydown",(e)=>{
+            let myKey = e.key;  // key use for get whichkey pressed 
+            if(myKey === "Shift")
+              shiftKey = true;
+        
+        })
+    </script>
+</body>
+</html>
