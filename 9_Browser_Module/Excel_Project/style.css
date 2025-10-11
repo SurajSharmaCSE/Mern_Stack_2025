@@ -32,6 +32,9 @@ body{
     display: inline-block;
     margin-right: 1rem;
 }
+.cellprops-actions-cont> *:hover{
+cursor: pointer;
+}
 .cellprops-actions-cont > select{
     border: none;
     border-radius: 2px;
@@ -42,6 +45,17 @@ body{
 }
 .font-size-prop{
     padding:0.2rem;
+}
+.color-prop {
+    position: relative;
+}
+.color-prop > input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -72,10 +86,6 @@ body{
     border: none;
     outline: none;
 }
-
-
-
-
 .sheet-actions-cont {
     height: 3rem;
     display: flex;
@@ -107,4 +117,58 @@ body{
 }
 .grid-cont{
     height: calc(100vh - 3rem - 3rem - 3rem - 3rem);
+    position: relative;
+    overflow: scroll;
+    background-color: #ecf0f1;
+
+}
+.top-left-dummy-box
+{
+    height: 2rem;
+    width: 2rem;
+    background-color: #747d8c;
+    position: fixed;
+    z-index: 4;
+}
+
+.address-col-cont{
+    position: sticky;
+    top: 2rem;
+    left: 0;
+    position: sticky;
+    
+}
+.address-row-cont
+{
+    display: flex;
+    position: sticky;
+    top:0;
+    left:2rem;
+    
+}
+.cells-cont{
+    position: absolute;
+    top:0;
+    left:2rem;
+}
+.cell{
+    height: 2rem;
+    width: 5rem;
+    border: 1px solid #dfe4ea;
+}
+.address-col{
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    border: 1px solid #dfe4ea;
+}
+.address-row{
+    height: 2rem;
+    width: 5rem;
+    border: 1px solid #747d8c;
+    justify-content: center;
+    
+}
+.row-cont {
+    display: flex;
 }
