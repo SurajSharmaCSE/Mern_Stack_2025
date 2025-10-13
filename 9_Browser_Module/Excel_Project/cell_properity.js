@@ -14,7 +14,10 @@ for(let i=0;i<rows;i++)
             fontSize:"14",
             fontFamily:"monospace",
             fontColor:"#000000",
-            BGcolor:"#000000"  // just for indication purpose
+            BGcolor:"#000000",  // just for indication purpose
+            value: "",
+            formula:"",
+            children:[],
         }
         sheetRow.push(cellProp);
     }
@@ -43,7 +46,7 @@ let inactiveColorProp = "#ecf0f1";
 // Application of two way binding
 bold.addEventListener("click",(e) =>{
     let address = addressBar.value;
-    let [cell,cellProp] = activeCell(address);
+    let [cell,cellProp] = getCellAndCellProp(address);
 
     //Modification
     cellProp.bold = !cellProp.bold;
@@ -56,7 +59,7 @@ bold.addEventListener("click",(e) =>{
 
 italic.addEventListener("click",(e) =>{
     let address = addressBar.value;
-    let [cell,cellProp] = activeCell(address);
+    let [cell,cellProp] = getCellAndCellProp(address);
 
     //Modification
     cellProp.italic= !cellProp.italic;
@@ -65,7 +68,7 @@ italic.addEventListener("click",(e) =>{
 })
 underline.addEventListener("click",(e) =>{
     let address = addressBar.value;
-    let [cell,cellProp] = activeCell(address);
+    let [cell,cellProp] = getCellAndCellProp(address);
 
     //Modification
     cellProp.underline= !cellProp.underline;
@@ -74,7 +77,7 @@ underline.addEventListener("click",(e) =>{
 })
 fontSize.addEventListener("change",(e) =>{
     let address = addressBar.value;
-    let [cell,cellProp] = activeCell(address);
+    let [cell,cellProp] = getCellAndCellProp(address);
 
     //Modification
     cellProp.fontSize= fontSize.value;  // Data change
@@ -83,7 +86,7 @@ fontSize.addEventListener("change",(e) =>{
 })
 fontFamily.addEventListener("change",(e)=>{
     let address = addressBar.value;
-    let[cell,cellProp]= activeCell(address);
+    let[cell,cellProp]= getCellAndCellProp(address);
 
     //Modification
     cellProp.fontFamily = fontFamily.value;  // data change
@@ -93,7 +96,7 @@ fontFamily.addEventListener("change",(e)=>{
 })
 fontColor.addEventListener("change",(e)=>{
     let address = addressBar.value;
-    let[cell,cellProp]= activeCell(address);
+    let[cell,cellProp]= getCellAndCellProp(address);
 
     //Modification
     cellProp.fontColor = fontColor.value;  // data change
@@ -103,7 +106,7 @@ fontColor.addEventListener("change",(e)=>{
 })
 BGcolor.addEventListener("change",(e)=>{
     let address = addressBar.value;
-    let[cell,cellProp]= activeCell(address);
+    let[cell,cellProp]= getCellAndCellProp(address);
 
     //Modification
     cellProp.BGcolor = BGcolor.value;  // data change
@@ -116,7 +119,7 @@ BGcolor.addEventListener("change",(e)=>{
 alignment.forEach((aligElem) =>{
     aligElem.addEventListener("click",(e)=>{
         let address = addressBar.value;
-        let[cell,cellProp]= activeCell(address);
+        let[cell,cellProp]= getCellAndCellProp(address);
 
         let alignValue = e.target.classList[0];
         cellProp.alignment = alignValue; // data change
@@ -140,7 +143,6 @@ alignment.forEach((aligElem) =>{
                 rightAlign.style.backgroundColor = activeColorProp;
                 break;
         }
-        
     })
 })
 
@@ -176,11 +178,34 @@ function addListenerToAttachedCellProperity(cell)
         underline.style.backgroundColor = cellProp.underline ? activeColorProp : inactiveColorProp;
         fontColor.value = cellProp.fontColor;
         BGcolor.value = cellProp.BGcolor
+        fontSize.value = cellProp.fontSize;
+        fontFamily.value = cellProp.fontFamily;
+        switch(cellProp.alignment)
+        {
+            case "left":
+                leftAlign.style.backgroundColor = activeColorProp;
+                centerAlign.style.backgroundColor = inactiveColorProp;
+                rightAlign.style.backgroundColor = inactiveColorProp;
+                break;
+            case "centre":
+                leftAlign.style.backgroundColor = inactiveColorProp;
+                centerAlign.style.backgroundColor = activeColorProp;
+                rightAlign.style.backgroundColor = inactiveColorProp;
+                break;
+            case "right":
+                leftAlign.style.backgroundColor = inactiveColorProp;
+                centerAlign.style.backgroundColor = inactiveColorProp;
+                rightAlign.style.backgroundColor = activeColorProp;
+                break;
+        }
+        let formulaBar = document.querySelector(".formula-bar");
+        formulaBar.value = cellProp.formula;
+        cell.value = cellProp.value;  
     })
 }
 
 
-function activeCell(address)
+function getCellAndCellProp(address)
 {
     let [rid, cid] = decodeRIDCIDAddress(address);
 
