@@ -15,7 +15,7 @@ isAvengers:true,
 movie:["First Avenger","Winter Avenger","Civil War"],
 sayHi: function(){
                     console.log("cap say's Hi")
-                  }
+                 }
 };
 
 //Get
