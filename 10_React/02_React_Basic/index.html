@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    // How to attech element in DOM
+
+    // in JS
+    /*
+    let elem = document.createElement('h1');
+    elem.innerHTML = 'hello'
+    console.log(elem)
+    let root = document.getElementById('root');
+    root.appendChild(elem);
+    */
+
+   // in Simple React
+   /*
+   let root = document.getElementById('root');
+   let elem = React.createElement('h1',{
+    children:['Hello React']
+   })
+   console.log(elem)
+   ReactDOM.render(elem,root)
+    */
+
+   // in JSX
+   function Element(){
+    return(
+        <h1>Hello JSX</h1>
+    )
+   }
+
+//    let root = document.getElementById('root');
+//    ReactDOM.render(<Element/>,root)
+
+   // Example of Reusablity of React i.e JSX code
+   function Main(){
+    return(
+        // you can use here <div> </div> also Instead of React.Fragment >
+        <React.Fragment>  
+            <Element/>
+            <Element/>
+            <Element/>
+            <Element/>
+            <Element/>
+        </React.Fragment>
+    )
+   }
+   let root = document.getElementById('root');
+   ReactDOM.render(<Main/>,root)
+</script>
+</html>
