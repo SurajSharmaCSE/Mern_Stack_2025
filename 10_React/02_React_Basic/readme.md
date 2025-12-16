@@ -25,3 +25,25 @@
     2. render: 
         - displayed of UI
         - whenever state is changed , render is called
+    3. Life cycle Methods:
+        Mounting(first time on DOM)     |        Updating(state change)             |       unmouting
+         - Construcutor()               |          render()                         |           componentDidupdate() 
+              |                         |             |                             |  
+              |                         |             |                             |  
+              v                         |             v                             |  
+         - render()                     |        componentDidupdate()               |  
+              |                         |                                           |  
+              |                         |                                           |  
+              v                         |                                           |  
+         - componentdidMount()          |                                           |  
+    4. Routing
+        Browser Router
+        Route
+        Switch
+        exact
+        link
+        Render
+## Functional Component:
+    - useState
+    - useEffect
+
